@@ -1,0 +1,27 @@
+<div class="body"></div>
+		<div class="grad"></div>		
+    <br>
+    <div>
+      <form [formGroup]='loginform' (ngSubmit)='submit()' class="login"  novalidate>
+          <input type="text"  formControlName='username' class='form-control' placeholder="username" name="username"><br>        
+          <div *ngIf="username.invalid && (username.dirty || isSubmitted)" class="text-danger">
+
+          <div *ngIf="username.errors.required">
+              Username is required.
+            </div>
+            <div *ngIf="username.errors.minlength">
+              Username must be at least 4 characters long.
+            </div>
+            <div *ngIf="username.errors.maxlength">
+              Username must not exceed 15 characters.
+            </div>
+          </div>
+          <input type="password" formControlName='password' class='form-control' placeholder="password" name="password"><br>
+          
+          <div *ngIf="password.invalid && (password.dirty || isSubmitted)" class="text-danger">
+            Password is required.
+          </div>
+        
+          <button type='submit' class='btn btn-primary loginsubmit'>Login</button>
+      </form> 
+    </div>
